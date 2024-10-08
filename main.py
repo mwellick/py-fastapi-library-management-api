@@ -29,7 +29,7 @@ def get_db() -> Session:
 
 
 @app.post(
-    "/authors/create",
+    "/authors/create/",
     status_code=status.HTTP_201_CREATED,
     response_model=Author
 )
@@ -47,7 +47,7 @@ def authors_list(db: Session = Depends(get_db), skip: int = 0, limit: int = 10):
 
 
 @app.get(
-    "/authors/{author_id}",
+    "/authors/{author_id}/",
     status_code=status.HTTP_200_OK,
     response_model=Author
 )
@@ -74,7 +74,7 @@ def books_list(db: Session = Depends(get_db), skip: int = 0, limit: int = 10):
 
 
 @app.get(
-    "/books/{author_id}",
+    "/books/{author_id}/",
     status_code=status.HTTP_200_OK,
     response_model=list[Book]
 )
